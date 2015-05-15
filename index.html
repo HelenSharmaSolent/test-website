@@ -1,0 +1,671 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+<title>
+	Home | Southampton Solent University
+</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="Content-Style-Type" content="text/css">
+		<meta http-equiv="Content-Script-Type" content="text/javascript">
+	</head>
+	<body>
+		<style type="text/css">
+			/********************Base Element Styles START**********************/
+			html body
+			{
+				font-family: "Trebuchet MS", Ariel, verdana, sans-serif;
+				font-size:81.3%;	/*10pt*/
+				word-wrap:break-word;
+
+				margin:auto;
+				width:950px;
+				padding:0px;
+				/*background:#dbdbdb repeat-x url("images/background-fade.jpg") center top;*/
+			}
+
+			input, select, button,  textarea
+			{
+				font-family:inherit;
+				font-size:1em;
+				margin:0px;
+			}
+
+			/*reset padding for FireFox buttons*/
+			button::-moz-focus-inner,  
+			input[type="reset"]::-moz-focus-inner,  
+			input[type="button"]::-moz-focus-inner,  
+			input[type="submit"]::-moz-focus-inner
+			{
+				padding:0px;
+				border:0px;
+			}
+
+			a, a:visited, a:hover, a:link
+			{
+				text-decoration:none;
+				color:#0066CB;
+			}
+
+			a img
+			{
+				display:block;
+			}
+
+			a:hover img
+			{
+				opacity:0.8;
+			}
+
+			a:hover
+			{
+				text-decoration:underline;
+				color:#0066CB;
+			}
+
+			img
+			{
+				border:0px;
+			}
+
+			h1
+			{
+				color:#E70B00;
+				font-weight:bold;
+				font-size:1.692em;	/*17pt*/
+				margin-bottom:15px;
+				margin-top:0px;
+			}
+
+			h2
+			{
+				color:#000;
+				font-weight:bold;
+				font-size:1.3em;	
+				margin-bottom:5px;
+				margin-top:30px;
+			}
+
+
+			/*When h2 is immediately after h1 reduce the spacing*/
+			h1+h2, h2:first-child
+			{
+				margin-top:15px;
+			}
+
+			h3
+			{
+				color:#000000;
+				font-weight:bold;
+				font-size:1.154em;	/*11pt*/
+				margin-bottom:5px;
+				margin-top:30px;
+			}
+			/*When h3 is immediately after h2 reduce the spacing*/
+			h2+h3, h3:first-child
+			{
+				margin-top:15px;
+			}
+
+			p
+			{
+				margin-top:0px;
+				margin-bottom:12px;	
+			}
+
+			ul
+			{
+				margin-top:10px;
+				margin-bottom:10px;
+			}
+
+			caption
+			{
+				display:none;
+			}
+
+			table
+			{
+				border:0px;
+			}
+
+			td, th
+			{
+				vertical-align:top;
+				padding:2px 5px;
+				border:1px solid #fff;
+				text-align:left;
+			}
+
+			td p:first-child, th p:first-child
+			{
+				margin:0px;
+			}
+			td p, th p
+			{
+				margin:12px 0px 0px;
+			}
+
+			th
+			{
+				background:#6E6E6E;
+				color:white;
+				font-weight:bold;
+			}
+
+			.sys_back-to-top p
+			{
+				text-align:right;
+			}
+			/********************Base Element Styles END**********************/
+
+			/********************Form Styles START ***************************/
+			input[type="submit"], input[type="reset"], input[type="button"], button
+			{
+				background-color: #D7D7D9;
+				color:#080808;
+				font-weight:bold;
+				border:#fff solid 1px;
+				padding:0px 4px;
+				display:inline;
+			}
+
+			input[type="submit"]:active, input[type="reset"]:active, input[type="button"]:active, button:active
+			{
+				background:#fff;
+				color:#0b3b8c;
+				border-style:inset;
+			}
+
+			legend
+			{
+				color:blue;
+			}
+
+			fieldset
+			{
+				padding:10px 10px 10px 15px;
+				border-radius:5px;
+				width:auto;
+				display:inline;
+				border:1px solid #cccccc;
+				-moz-border-radius:5px;
+				margin:0px 0px 15px 0px;
+			}
+
+			fieldset div
+			{
+				overflow:hidden;
+				margin-bottom:5px;
+			} 
+
+			fieldset label
+			{
+				float:left;
+				width:150px;
+				margin-right:10px;
+			}
+
+			fieldset select
+			{
+				float:left;
+				margin-right:10px;
+			}
+
+			fieldset input
+			{
+				float:left;
+				margin-right:10px;
+			}	
+
+			fieldset input[type="text"]
+			{
+				width:250px;
+			}
+
+			fieldset textarea
+			{
+				width:250px;
+				min-height:100px;
+				float:left;
+				margin-right:10px;
+			}
+
+			fieldset span
+			{
+				float:left;
+				margin-right:10px;
+				width:200px;
+			}
+
+			fieldset div.sys_form-buttons input
+			{
+				text-align:center;
+				margin-right:0px;
+				float:left;
+				margin-left:10px;
+			}
+
+			fieldset div.sys_form-buttons input:first-child
+			{
+				margin-left:0px;
+			}
+
+			fieldset div.sys_form-buttons
+			{
+				margin:15px 0px 0px;
+				padding-left:159px;
+			}
+
+			fieldset div#more-search-links 
+			{
+				border-top:1px solid #ccc;
+				margin-bottom:0px;
+				padding-top:10px;
+			}
+
+			fieldset div#more-search-links ul
+			{
+				margin:0px;
+				padding:0px;
+				list-style-type:none;
+			}
+			/********************Form Styles END *****************************/
+
+			/********************Site Containers START***********************/
+			#site_header_logo_container{
+				background:url("images/header-bg.png") no-repeat #BF0607;
+				padding:0;
+				height:92px;
+				padding-top:0;
+				padding-left:20px;
+			}
+
+			#site_navigation_container{
+				background:url("images/menu-bar-bg.jpg") #C6C6C6 repeat-x;
+			}
+
+			#site_breadcrumbs{
+				overflow:hidden;
+				padding:5px 5px 0px 10px;
+				font-size:0.923em;	/*9pt*/
+				background:#fff;
+			}
+
+			#site_manuscript_container
+			{
+				padding:20px 0;
+				background:#fff;
+				margin:auto;
+			}
+
+			/*clear all floats*/
+			#site_breadcrumbs, #site_header_logo_container, #portal_manuscript_container
+			{
+				/*clear:both;*/
+				overflow:hidden;
+			}
+			/********************Site Containers END**************************/
+
+			/********************Header Styles START**************************/
+			#site_header_logo_container a, #site_header_logo_container a img
+			{
+				display:block;
+				float:left;
+				margin-top:7px;
+			}
+
+			#site_header, #footer
+			{
+				width:950px;
+				margin:auto;
+			} 
+			/********************Header Styles End***************************/
+			/********************Footer Styles START**************************/
+			#footer
+			{
+				clear:both;
+				background:url("images/2-footer-base.jpg") no-repeat #062f5d;
+				padding:4px 10px 4px 5px;
+				overflow:hidden;
+				border-top:2px solid #fff;
+				border-bottom:2px solid #fff;
+				/*margin-bottom:10px;*/
+			}
+
+			#footer
+			{
+				clear:both;
+				overflow:hidden;
+				border-top:2px solid #fff;
+				border-bottom:2px solid #fff;
+				padding:0px;
+			}
+
+			#footer p, #footer #footer-top-bar li
+			{
+				font-size:0.923em;	/*9pt*/
+				margin:0px;
+			}
+				
+			#footer #footer-top-bar a, #footer #footer-middle-bar a, #footer #footer-bottom-bar a
+			{
+				color:#fff;
+			} 
+
+			#footer-top-bar
+			{
+				background: url(images/bg-black-bar.png) #000 repeat-x;
+				color: #999;
+				clear: both;
+				padding:4px 10px 4px 5px;
+				overflow:hidden;
+			}
+
+			#footer-top-bar ul
+			{
+				margin:0px;
+				padding:5px;
+				list-style-type:none;
+				overflow:hidden;
+				width:800px;
+				float:left;
+			}
+			#footer-top-bar ul *
+			{
+				line-height:12px;
+			}
+
+			#footer-top-bar #skip_to_top
+			{
+				float:right;
+				width:125px;
+				text-align:right;
+				font-size:0.923em;	/*9pt*/
+				margin-top: 4px;
+			}
+
+			#footer-top-bar ul li
+			{
+				float:left;
+				padding-right: 10px;
+				padding-left:10px;
+				border-right: 1px #666 solid;
+			}
+			#footer-top-bar ul li:first-child
+			{
+				margin-right:10px;
+				padding-left:0px;
+				font-weight:bold;
+				border-right:none;
+			}
+
+
+			#footer-middle-bar
+			{
+				background-image: url("images/2-footer-base.jpg");
+				background-repeat: no-repeat;
+				color:#fff;
+				overflow:hidden;
+				padding:20px 10px 4px;
+				background-color: #ccc;
+				text-align:right;
+			}
+
+			#footer-bottom-bar
+			{ 	
+				background-color:#000;
+				color: #999;
+				clear: both;
+				padding:5px 10px 5px 10px;
+				overflow:hidden;
+			}
+
+			#footer-bottom-bar-left
+			{
+				float:left;
+				width:600px;
+			}
+
+			#footer-bottom-bar-right
+			{
+				float:right;
+				width:250px;
+				margin-left:20px;
+			}
+
+			#footer-bottom-bar-right p
+			{
+				text-align:right;
+			}
+			/********************Footer Styles END****************************/
+
+			/********************Navigation Styles START***********************/
+			#site_navigation_container a
+			{
+				text-decoration:none;
+			}
+
+			#site_navigation_container ul 
+			{
+				list-style:none;
+				margin:0;
+				padding:0;
+			}
+
+			/*Set links to be the same width and height as the li tags*/
+			#site_navigation_container li a
+			{
+				display:block;
+				font-weight:bold;
+				line-height:normal;
+				padding:11px 10px;
+			}
+
+			/*CLEAR all floats*/ 
+			#site_navigation_container, #site_navigation_container ul
+			{
+				overflow:hidden;
+			}
+
+			#site_navigation_container
+			{
+				overflow:hidden;
+			}
+
+			/*menu button color*/
+			#site_navigation_container ul a
+			{
+				color:#000000;
+			}
+
+			/*Align menu elements next to each other*/
+			#site_navigation_container li
+			{
+				float:left;
+				padding:0px;
+			}
+
+			/*menu bar separater lines*/
+			#site_navigation_container ul li
+			{
+				background:url("images/menu-bar-separator-line.jpg") no-repeat right top;
+			}
+
+			/*hover state of hovered tab*/
+			#site_navigation_container ul li a:hover
+			{
+				background:url("images/menu-bar-separator-line.jpg") no-repeat right #93cdf5;
+				color:#ffffff;
+			}
+/********************emergency text styles START **********************/
+#emergency-strip{
+	  background-color: #FFC;
+	  border: 1px solid #333;
+	  overflow: hidden;
+	  background:url("images/emergency-strip-bg.jpg") repeat-x;
+	  background-color:#bd1a15;
+	  margin-bottom:10px;
+	  padding-bottom:10px;
+
+	}
+	
+#emergency-strip #emergency-pling{		
+	float:left; 
+	height:32px;
+	width:32px;
+	margin:10px 20px 0px 10px;
+	background:url("images/emergency-strip-pling-grey.jpg") left top no-repeat;
+	}
+	
+#emergency-strip #emergency-title{	
+	float:left; 
+	width:180px;
+	padding-right:20px;
+	margin-top:10px;
+}
+
+#emergency-strip #emergency-list{	
+	float:left; 
+	background:url() right bottom no-repeat; 
+	width:550px;
+	margin-top:2px;
+	padding-top:10px;
+}
+
+#emergency-strip #emergency-list p{	
+	color:#fff;
+}
+
+#emergency-strip #emergency-links{	
+	float:left; 
+	width:100px; 
+	margin: 20px 0 0 40px;
+	display:none;
+}
+	
+#emergency-strip h2{
+	  color: #FFF;
+	  padding:0px;
+	  margin:5px 0 0 0;
+	   background-color: transparent;
+	   display:block;
+	  
+	}
+#emergency-strip p{
+	  font-size:90%;
+	  margin:0px;
+	  padding:0px;
+	  line-height:12pt;
+	  color:#fff;
+
+	}
+#emergency-strip a{
+	  font-size:90%;
+	  margin:0px;
+	  padding:0px;
+	  line-height:12pt;
+	  color:#fff;
+	}
+#emergency-strip ul{
+	  font-size:12px;
+	  margin:3px 0 0 20px;
+	  padding:0px;
+	  line-height:12pt;
+	  list-style-type:circle;
+	}
+#emergency-strip ul li{
+	  padding:0px;
+	  margin:0px;
+	  line-height:12pt;
+	  background-image:none;
+
+	}
+/******************** emergency text styles END **********************/
+
+		</style>
+		<div id="site_header">
+			<div id="site_header_logo_container">
+				<a href="http://portal.solent.ac.uk"><img width="166" height="62" src="images/solent-logo.png" alt="Southampton Solent University" style="DISPLAY: inline"></a>
+			</div>            
+			<div id="site_navigation_container">
+				<ul>
+					<li>
+						<a href="http://portal.solent.ac.uk">Home</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div id="site_manuscript_container">
+		
+            <div id="emergency-strip" class="sys_index-page-fullwidth-container">
+				<div id="emergency-pling">
+				</div>
+				<div id="emergency-title">
+					<h2>Essential work on our website  </h2>
+				</div>
+				<div id="emergency-list">
+					<p><p>
+						Due to essential maintenance work, elements of our website may be temporarily unavailable from 12 noon on Thursday 7 May 2015. We apologise for any inconvenience this may cause.
+					</p></p>
+				</div>
+</div> 
+<img src="images/cluster-home.jpg">
+<div style="background-color: #f4f4f4; border: 1px solid #ccc; overflow:hidden; margin-bottom: 30px;padding-bottom: 50px; padding: 10px 10px 50px 30px; margin-top:20px">
+
+<h1 style="margin-top:10px; color: #000">Sorry, our website is temporarily unavailable - please try again later</h1>
+
+<p>Our website is currently unavailable due to essential maintenance. We are sorry for any inconvenience.</p>
+
+<p>Please use the links below to access essential services.</p>
+<ul>
+<li style="width: 40%; float:left"><a href="http://portal.solent.ac.uk/">Staff and student portal</a></li>
+<li style="width: 40%; float:left"><a href="https://recruitment.solent.ac.uk/WebRecruitment/">Jobs at Solent</a></li>
+
+<li style="width: 40%; float:left"><a href="http://portal.solent.ac.uk/library">The library</a></li>
+
+<li style="width: 40%; float:left"><a href="http://mycourse.solent.ac.uk/">myCourse</a></li>
+
+
+
+<li style="width: 40%; float:left"><a href="http://www.warsashmaritimeacademy.co.uk/">Warsash Maritime Academy</a></li>
+
+<li style="width: 40%; float:left"><a href="http://www.warsashsuperyachtacademy.com/">Warsash Superyacht Academy</a></li>
+<li style="width: 40%; float:left"><a href="http://mycourse.solent.ac.uk/succeed">Succeed@Solent</a></li>
+
+<li style="width: 40%; float:left"><a href="http://www.solentsu.co.uk/">Solent Students' Union</a></li>
+
+</ul>
+</div>
+
+</div>
+		<div id="footer">
+			<div id="footer-top-bar">
+				<ul>
+					<li>Main Areas</li>
+					<li><a title="Home" href="http://www.solent.ac.uk">Home</a></li>
+					<li><a title="SolentOfficial Twitter Feed" href="https://twitter.com/solentofficial">Twitter</a></li>
+					<li><a title="Southampton Solent University Facebook Wall" href="https://www.facebook.com/solentuniversity?v=wall">Facebook</a></li>
+					<li><a title="Southampton Solent YouTube Channel" href="http://www.youtube.com/SolentUniOfficial">YouTube</a></li>
+				</ul>
+				<div id="skip_to_top">
+					<a href="#top">Skip to top</a>
+				</div>
+			</div>
+			<div id="footer-middle-bar">
+					<a title="Southampton Solent University" onclick="void(window.open('http://www.solent.ac.uk','','toolbar=yes,menubar=yes,location=yes,scrollbars=yes,status=yes,resizable=yes'));return false;" href="http://www.solent.ac.uk" onkeypress="void(window.open('http://www.solent.ac.uk','','toolbar=yes,menubar=yes,location=yes,scrollbars=yes,status=yes,resizable=yes'));return false;"><img width="166" height="62" src="images/solent-logo.png" alt="Southampton Solent University" style="DISPLAY: inline"></a>
+			</div>
+			<div id="footer-bottom-bar">
+				<div id="footer-bottom-bar-left">
+					<p>
+						&copy; Southampton Solent University
+					</p>
+				</div>
+				<div id="footer-bottom-bar-right">
+					<p>
+						Main switchboard tel: +44 (0)23 8031 9000
+					</p>
+				</div>
+			</div>
+		</div>           
+	</body>
+</html>
